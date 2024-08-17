@@ -1,0 +1,12 @@
+.table {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  border: 1px solid black;
+}
