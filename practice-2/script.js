@@ -1,41 +1,71 @@
-const url = 'https://jsonplaceholder.typicode.com/posts';
-const main = document.querySelector('.main');
+(function() {
+  const url = 'https://jsonplaceholder.typicode.com/posts';
+  const main = document.querySelector('.main');
 
-const convertDataInTable = (data) => {
-  return data && data.reduce((table, current) => {
-    const columnWithCurrentUserId = table.find((column) => column.userId === current.userId);
-    if (columnWithCurrentUserId) {
-      columnWithCurrentUserId.content.push({
-        title: current.title,
-        body: current.body
-      });
-    } else {
-      const newColumn = {
-        userId: current.userId,
-        content: [{
-          title: current.title,
-          body: current.body
-        }]
-      };
-      table.push(newColumn);
+  const headers = [
+    {
+      title: 'User ID',
+      columnId: 'userId',
+    },
+    {
+      title: 'ID',
+      columnId: 'id'
+    },
+    {
+      title: 'Title',
+      columnId: 'title'
+    },
+    {
+      title: 'Body',
+      columnId: 'body'
     }
-    return table;
-  }, []);
-}
+  ];
 
-const generateTable = (data) => {
-  const table = document.createElement('table');
-  table.classList.add('table');
-  for (let columnData of data) {
-    const column = document.createElement('tr');
-    column.classList.add('tr');
-    const postList = columnData.content.map((post) => `<td class="cell"><p class="title">${post.title}</p><p class="body">${post.body}</p></td>`);
-    column.innerHTML = `<td class="cell">userId=${columnData.userId}</td>` + postList.join('');
-    table.appendChild(column);
+  const generateTable = (data) => {
+    const thead = createThead(headers);
+    const tbody = createTbody(headers, data);
+    const table = document.createElement('table');
+    table.classList.add('table');
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    main.appendChild(table);
   }
-  main.appendChild(table);
-}
 
-fetch(url).then((response) => response.json())
-.then((data) => convertDataInTable(data))
-.then((data) => generateTable(data));
+  const createThead = (headers) => {
+    const thead = document.createElement('thead');
+    thead.classList.add('.thead');
+    const tr = document.createElement('tr');
+    for (let header of headers) {
+      const th = document.createElement('th');
+      th.classList.add('th');
+      th.setAttribute('data-columnId', header.columnId);
+      th.textContent = header.title;
+      tr.appendChild(th);
+    }
+    thead.appendChild(tr);
+    return thead;
+  }
+  
+  const createTbody = (headers, data) => {
+    const tbody = document.createElement('tbody');
+    tbody.classList.add('.tbody');
+    for (let row of data) {
+      const tr = document.createElement('tr');
+      tr.classList.add('tr');
+      for (let header of headers) {
+        const td = document.createElement('td');
+        td.classList.add('td');
+        td.setAttribute('data-columnId', header.columnId);
+        td.textContent = row[header.columnId];
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+    return tbody;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch(url).then((response) => response.json())
+    .then((data) => generateTable(data));
+  });
+})();
