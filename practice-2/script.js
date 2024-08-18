@@ -24,13 +24,13 @@ const convertDataInTable = (data) => {
 }
 
 const generateTable = (data) => {
-  const table = document.createElement('div');
+  const table = document.createElement('table');
   table.classList.add('table');
   for (let columnData of data) {
-    const column = document.createElement('div');
-    column.classList.add('column');
-    column.innerHTML = columnData.content.map((post) => `<div class="cell"><p class="title">${post.title}</p><p class="body">${post.body}</p></div>`);
-
+    const column = document.createElement('tr');
+    column.classList.add('tr');
+    const postList = columnData.content.map((post) => `<td class="cell"><p class="title">${post.title}</p><p class="body">${post.body}</p></td>`);
+    column.innerHTML = `<td class="cell">userId=${columnData.userId}</td>` + postList.join('');
     table.appendChild(column);
   }
   main.appendChild(table);

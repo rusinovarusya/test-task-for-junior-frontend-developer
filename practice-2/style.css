@@ -1,12 +1,13 @@
-.table {
-  display: flex;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
+* {
+  margin: 0;
 }
 
 .cell {
+  padding: 10px;
   border: 1px solid black;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-weight: bolder;
 }
