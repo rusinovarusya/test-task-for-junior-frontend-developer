@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal with form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="main-container">Something...</main>
+
+  <aside class="modal">
+    <div class="modal__shadow"></div>
+    <article class="modal__content">
+      <h1 class="title">Стать партнёром проекта</h1>
+      <form action="" method="post" class="form">
+        <div class="form__input-container">
+
+          <div class="input-container organization-name">
+            <label for="organization-name" class="input-container__label">
+              <span class="star">✱</span> Название организации
+            </label>
+            <input type="text" class="input-container__input" id="organization-name" required>
+          </div>
+
+          <div class="input-container telephone">
+            <label for="telephone" class="input-container__label">
+              <span class="star">✱</span> Телефон
+            </label>
+            <input type="tel" class="input-container__input" id="telephone" required>
+          </div>
+
+          <div class="input-container email">
+            <label for="email" class="input-container__label">
+              <span class="star">✱</span> E-mail
+            </label>
+            <input type="email" class="input-container__input" id="email" required>
+          </div>
+
+          <div class="logo-input logo">
+            <label for="logo" class="logo-input__label">
+              <span class="star">✱</span> Логотип (jpeg, png)
+            </label>
+            <input type="file" class="logo-input__input" id="logo" required>
+            <div class="preview">
+              <img src="" alt="" class="preview_img">
+              <button class="preview__button">
+                <img src="./assets/images.svg" alt="" class="preview-button__icon">
+                <span class="preview-button__text">Выберите файл</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="input-container direction">
+            <label for="direction" class="input-container__label">
+              <span class="star">✱</span> Направление
+            </label>
+             <select name="" id="direction" required></select>
+          </div>
+
+          <div class="link site">
+            <input type="url" class="link__input" name="" id="">
+            <img src="./assets/global.svg" alt="" class="">
+          </div>
+          <div class="link vk">
+            <input type="url" class="link__input" name="" id="">
+            <img src="./assets/vk.svg" alt="" class="">
+          </div>
+          <div class="link ok">
+            <input type="url" class="link__input" name="" id="">
+            <img src="./assets/odnoklassniki.svg" alt="" class="">
+          </div>
+          <div class="link facebook">
+            <input type="url" class="link__input" name="" id="">
+            <img src="./assets/facebook.svg" alt="" class="">
+          </div>
+          <div class="link instagram">
+            <input type="url" class="link__input" name="" id="">
+            <img src="./assets/Instagram.svg" alt="" class="">
+          </div>
+          <div class="link youtube">
+            <input type="url" class="link__input" name="" id="">
+            <img src="./assets/youtube.svg" alt="" class="">
+          </div>
+
+          <div class="input-container supervisor">
+            <label for="supervisor" class="input-container__label">
+              Руководитель
+            </label>
+             <input type="text" class="input-container__input" id="supervisor">
+          </div>
+        </div>
+
+        <div class="form__button-container">
+          <input type="button" class="button submit-button" value="Стать партнёром проекта" disabled>
+          <input type="button" class="button reset-button" value="Отменить">
+        </div>
+      </form>
+    </article>
+  </aside>
+
+  <script src="./script.js"></script>
+</body>
+</html>
