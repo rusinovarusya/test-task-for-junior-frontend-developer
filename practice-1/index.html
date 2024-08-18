@@ -40,25 +40,29 @@
             <input type="email" class="input-container__input" id="email" required>
           </div>
 
-          <div class="logo-input logo">
-            <label for="logo" class="logo-input__label">
+          <div class="logo-input-container logo">
+            <p class="logo-input-container__label">
               <span class="star">✱</span> Логотип (jpeg, png)
-            </label>
-            <input type="file" class="logo-input__input" id="logo" required>
-            <div class="preview">
-              <img src="" alt="" class="preview_img">
-              <button class="preview__button">
+            </p>
+            <label for="logo" class="logo-input">
+              <input type="file" class="logo-input__input" id="logo" required>
+              <img src="" alt="" class="logo-input__preview-img">
+              <div class="preview-button">
                 <img src="./assets/images.svg" alt="" class="preview-button__icon">
                 <span class="preview-button__text">Выберите файл</span>
-              </button>
-            </div>
+              </div>
+              <button class="delete-image-button"><img src="./assets/cross.svg" alt="" class="delete-image-button__icon"></button>
+            </label>
           </div>
 
           <div class="input-container direction">
             <label for="direction" class="input-container__label">
               <span class="star">✱</span> Направление
             </label>
-             <select name="" id="direction" required></select>
+            <select name="" id="direction" required>
+              <option value=""></option>
+              <option value="ecology">Экология</option>
+            </select>
           </div>
 
           <div class="link site">
@@ -66,23 +70,23 @@
             <img src="./assets/global.svg" alt="" class="">
           </div>
           <div class="link vk">
-            <input type="url" class="link__input" name="" id="">
+            <input type="url" class="link__input" name="" id="" pattern="vk.com/.*">
             <img src="./assets/vk.svg" alt="" class="">
           </div>
           <div class="link ok">
-            <input type="url" class="link__input" name="" id="">
+            <input type="url" class="link__input" name="" id="" pattern="ok.com/.*">
             <img src="./assets/odnoklassniki.svg" alt="" class="">
           </div>
           <div class="link facebook">
-            <input type="url" class="link__input" name="" id="">
+            <input type="url" class="link__input" name="" id="" pattern="facebook.com/.*">
             <img src="./assets/facebook.svg" alt="" class="">
           </div>
           <div class="link instagram">
-            <input type="url" class="link__input" name="" id="">
+            <input type="url" class="link__input" name="" id="" pattern="instagram.com/.*">
             <img src="./assets/Instagram.svg" alt="" class="">
           </div>
           <div class="link youtube">
-            <input type="url" class="link__input" name="" id="">
+            <input type="url" class="link__input" name="" id="" pattern="youtube.com/.*">
             <img src="./assets/youtube.svg" alt="" class="">
           </div>
 
