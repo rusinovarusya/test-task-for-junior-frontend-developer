@@ -10,25 +10,35 @@
   --light-color: #ffffff;
   --accent-color: #e5266e;
   --border-color: #d6dade;
+
+  --large-font: 800 28px/43px "Montserrat", sans-serif;
+  --medium-main-font: 400 16px/24px "PT Sans", sans-serif;;
+  --medium-extra-font: 600 16px/18px "Lato", sans-serif;
+  --small-font: 400 12px/16px "PT Sans", sans-serif;
+
+  --large-font-mobile: 800 28px/32px "Montserrat", sans-serif;
 }
 
 .main-container {
   background-color: var(--medium-color);
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: 170vh;
 }
 
 .modal {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 100%;
 }
 
 .modal__shadow {
   width: 100%;
   min-height: 100vh;
+  height: 170vh;
   background-color: rgba(0, 0, 0, 0.42);
 }
 
@@ -44,10 +54,7 @@
 
 .title {
   margin-bottom: 35px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 34px;
+  font: var(--large-font);
   text-align: left;
   color: var(--dark-color);
 }
@@ -77,7 +84,10 @@
 .organization-name { grid-area: name; }
 .telephone { grid-area: telephone; }
 .email { grid-area: email; }
-.direction { grid-area: direction; }
+.direction { 
+  grid-area: direction; 
+  height: 40px;
+}
 .logo { grid-area: logo; }
 
 .site {  grid-area: site; }
@@ -100,18 +110,12 @@
 }
 
 .input-container__label {
-  font-family: "PT Sans", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
+  font: var(--small-font);
   text-align: left;
 }
 
 .input-container__input {
-  font-family: "PT Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  font: var(--medium-main-font);
   text-align: left;
   color: var(--dark-color);
 }
@@ -123,10 +127,7 @@
 }
 
 .logo-input-container__label {
-  font-family: "PT Sans", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
+  font: var(--small-font);
   text-align: center;
 }
 
@@ -198,10 +199,7 @@
 }
 
 .link__input {
-  font-family: "PT Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  font: var(--medium-main-font);
   text-align: left;
   color: var(--dark-color);
 }
@@ -218,10 +216,7 @@
 .submit-button {
   width: 100%;
   padding: 14px 15px 16px;
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 18px;
+  font: var(--medium-extra-font);
   text-align: center;
   color: var(--light-color);
   background-color: var(--accent-color);
@@ -232,10 +227,7 @@
 }
 
 .reset-button {
-  font-family: "PT Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  font: var(--medium-main-font);
   text-align: center;
   color: var(--dark-color);
   background-color: var(--light-color);
