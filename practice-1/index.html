@@ -19,28 +19,28 @@
     <div class="modal__shadow"></div>
     <article class="modal__content">
       <h1 class="title">Стать партнёром проекта</h1>
-      <form action="" method="post" class="form">
+      <form method="post" class="form">
         <div class="form__input-container">
 
           <div class="input-container organization-name">
             <label for="organization-name" class="input-container__label">
               <span class="star">✱</span> Название организации
             </label>
-            <input type="text" class="input-container__input" id="organization-name" required>
+            <input type="text" class="input-container__input" id="organization-name" name="organization-name" required>
           </div>
 
           <div class="input-container telephone">
             <label for="telephone" class="input-container__label">
               <span class="star">✱</span> Телефон
             </label>
-            <input type="tel" class="input-container__input" id="telephone" required>
+            <input type="tel" class="input-container__input" id="telephone" name="telephone" required>
           </div>
 
           <div class="input-container email">
             <label for="email" class="input-container__label">
               <span class="star">✱</span> E-mail
             </label>
-            <input type="email" class="input-container__input" id="email" required>
+            <input type="email" class="input-container__input" id="email" name="email" required>
           </div>
 
           <div class="logo-input-container logo">
@@ -48,13 +48,13 @@
               <span class="star">✱</span> Логотип (jpeg, png)
             </p>
             <label for="logo" class="logo-input">
-              <input type="file" class="logo-input__input" id="logo" required>
-              <img src="" alt="" class="logo-input__preview-img">
+              <input type="file" class="logo-input__input" id="logo" name="logo" required>
+              <img alt="" class="logo-input__preview-img">
               <div class="preview-button">
                 <img src="./assets/images.svg" alt="" class="preview-button__icon">
                 <span class="preview-button__text">Выберите файл</span>
               </div>
-              <button class="delete-image-button"><img src="./assets/cross.svg" alt="" class="delete-image-button__icon"></button>
+              <button class="delete-image-button"><img src="./assets/cross.svg" alt="Delete" class="delete-image-button__icon"></button>
             </label>
           </div>
 
@@ -62,42 +62,42 @@
             <label for="direction" class="input-container__label">
               <span class="star">✱</span> Направление
             </label>
-            <select name="" id="direction" required>
+            <select name="direction" id="direction" required>
               <option value=""></option>
               <option value="ecology">Экология</option>
             </select>
           </div>
 
           <div class="link site">
-            <input type="url" class="link__input" name="" id="">
-            <img src="./assets/global.svg" alt="" class="">
+            <input type="url" class="link__input" name="site" id="site">
+            <img src="./assets/global.svg" alt="Your site">
           </div>
           <div class="link vk">
-            <input type="url" class="link__input" name="" id="" pattern="vk.com/.*">
-            <img src="./assets/vk.svg" alt="" class="">
+            <input type="url" class="link__input" name="vk" id="vk" pattern="vk.com/.*">
+            <img src="./assets/vk.svg" alt="vk.com">
           </div>
           <div class="link ok">
-            <input type="url" class="link__input" name="" id="" pattern="ok.com/.*">
-            <img src="./assets/odnoklassniki.svg" alt="" class="">
+            <input type="url" class="link__input" name="ok" id="ok" pattern="ok.com/.*">
+            <img src="./assets/odnoklassniki.svg" alt="ok.com">
           </div>
           <div class="link facebook">
-            <input type="url" class="link__input" name="" id="" pattern="facebook.com/.*">
-            <img src="./assets/facebook.svg" alt="" class="">
+            <input type="url" class="link__input" name="facebook" id="facebook" pattern="facebook.com/.*">
+            <img src="./assets/facebook.svg" alt="facebook.com">
           </div>
           <div class="link instagram">
-            <input type="url" class="link__input" name="" id="" pattern="instagram.com/.*">
-            <img src="./assets/Instagram.svg" alt="" class="">
+            <input type="url" class="link__input" name="instagram" id="instagram" pattern="instagram.com/.*">
+            <img src="./assets/Instagram.svg" alt="instagram.com">
           </div>
           <div class="link youtube">
-            <input type="url" class="link__input" name="" id="" pattern="youtube.com/.*">
-            <img src="./assets/youtube.svg" alt="" class="">
+            <input type="url" class="link__input" name="youtube" id="youtube" pattern="youtube.com/.*">
+            <img src="./assets/youtube.svg" alt="youtube.com">
           </div>
 
           <div class="input-container supervisor">
             <label for="supervisor" class="input-container__label">
               Руководитель
             </label>
-             <input type="text" class="input-container__input" id="supervisor">
+             <input type="text" class="input-container__input" id="supervisor" name="supervisor">
           </div>
         </div>
 
