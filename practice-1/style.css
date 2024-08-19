@@ -233,7 +233,17 @@
   background-color: var(--light-color);
 }
 
-
 .hidden {
   display: none;
+}
+
+.open-modal-button {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 32px;
+  font: var(--medium-main-font);
+  background-color: var(--accent-color);
+  border-radius: 12px;
 }
