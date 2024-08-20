@@ -157,8 +157,12 @@
   transform: translate(-50%, -50%);
   width: 164px;
   height: 164px;
+  background-image: url('');
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--medium-color);
   border-radius: 50%;
+  overflow: hidden;
 }
 
 .preview-button {
@@ -198,11 +202,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   padding: 16px;
   border: 1px solid var(--border-color);
 }
 
 .link__input {
+  width: 100%;
   font: var(--medium-main-font);
   text-align: left;
   color: var(--dark-color);
@@ -214,8 +220,6 @@
   align-items: center;
   gap: 15px;
 }
-
-.button {}
 
 .submit-button {
   width: 100%;
