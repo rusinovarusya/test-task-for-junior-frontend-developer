@@ -41,7 +41,7 @@
     table.classList.add('table');
     table.appendChild(thead);
     table.appendChild(tbody);
-    handlers.sort = (header) => sortTable(header.columnId, data, table);
+    handlers.sort = (header) => sortTable(header.columnId, table);
     handlers.hide = (target) => hideRows(target, table);
 
     return table;
@@ -81,34 +81,34 @@
     return tbody;
   }
 
-  const sortTable = (columnId, data, table) => {
+  const sortTable = (columnId, table) => {
     if (state.sortedByColumnId !== columnId) {
       state.order = 'default';
     }
     state.order = switchOrder(state.order);
     state.sortedByColumnId = columnId;
 
-    const newData = sortData(columnId, data, state.order);
-    updateTbody(headers, newData, table);
+    sortTbody(columnId, headers, table, state.order);
   }
 
-  const updateTbody = (headers, data, table) => {
-    const tbody = table.querySelector('.tbody');
-    const newTbody = createTbody(headers, data);
-    table.replaceChild(newTbody, tbody);
-  }
-
-  const sortData = (columnId, data, order) => {
-    const copy = [...data];
+  const sortTbody = (columnId, headers, table, order) => {
     const sortingCoefficient = order === 'asc' ? 1 : -1;
+    const childIndex = headers.findIndex((header) => header.columnId === columnId);
+    const tbody = table.querySelector('.tbody');
+    const rowList = tbody.querySelectorAll('.tr');
+    const newTbody = document.createElement('tbody');
+    newTbody.classList.add('tbody');
 
-    return copy.sort((a, b) => {
-      if (a[columnId] < b[columnId]) {
+    const newRowList = [...rowList].sort((a, b) => {
+      if (a.childNodes[childIndex].textContent < b.childNodes[childIndex].textContent) {
         return -1 * sortingCoefficient;
       } else {
         return 1 * sortingCoefficient;
       }
     });
+
+    newRowList.forEach((element) => newTbody.appendChild(element));
+    table.replaceChild(newTbody, tbody);
   }
 
   const switchOrder = (order) => {
@@ -134,7 +134,6 @@
 
   const isTargetInRow = (target, row) => {
     const elements = row.querySelectorAll('.td');
-    console.log(elements)
     return [...elements].some((element) => element.textContent.includes(target));
   }
 
