@@ -1,7 +1,7 @@
 (function() {
   const url = 'https://jsonplaceholder.typicode.com/posts';
   const main = document.querySelector('.main');
-  const form = document.querySelector('form');
+  const input = document.querySelector('.search-input');
   const preloader = document.querySelector('.preloader');
 
   const headers = [
@@ -43,7 +43,7 @@
     table.appendChild(thead);
     table.appendChild(tbody);
     handlers.sort = (header) => sortTable(header.columnId, table);
-    handlers.hide = (target) => hideRows(target, table);
+    handlers.hide = (target) => controlRows(target, table);
 
     return table;
   }
@@ -123,12 +123,14 @@
     }
   }
 
-  const hideRows = (target, table) => {
+  const controlRows = (target, table) => {
     const tbody = table.querySelector('.tbody');
     const rowList = tbody.querySelectorAll('.tr');
     for (let row of rowList) {
       if (!isTargetInRow(target, row)) {
         row.classList.add('hidden');
+      } else {
+        row.classList.remove('hidden');
       }
     }
   }
@@ -138,12 +140,15 @@
     return [...elements].some((element) => element.textContent.includes(target));
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const targetValue = form.elements['input'].value;
+  input.addEventListener('input', (e) => {
     const table = document.querySelector('.table');
-    hideRows(targetValue, table);
-  });
+    const value = e.target.value;
+    if (value.length > 2) {
+      controlRows(value, table);
+    } else {
+      controlRows('', table);
+    }
+  })
 
   const hidePreloader = () => {
     preloader.classList.add('hidden');

@@ -29,7 +29,7 @@
       const image = files[0];
       let src = URL.createObjectURL(image);
       const previewImg = document.querySelector('.logo-input__preview-img');
-      previewImg.src = src;
+      previewImg.style.backgroundImage = `url(${src})`;
     }
   }
   

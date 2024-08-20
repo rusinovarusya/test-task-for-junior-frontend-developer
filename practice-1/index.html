@@ -33,7 +33,7 @@
             <label for="telephone" class="input-container__label">
               <span class="star">✱</span> Телефон
             </label>
-            <input type="tel" class="input-container__input" id="telephone" name="telephone" required>
+            <input type="tel" class="input-container__input" id="telephone" name="telephone" required minlength="11" maxlength="12" pattern="(8|\+7)\d{10}">
           </div>
 
           <div class="input-container email">
@@ -48,8 +48,8 @@
               <span class="star">✱</span> Логотип (jpeg, png)
             </p>
             <label for="logo" class="logo-input">
-              <input type="file" class="logo-input__input" id="logo" name="logo" required>
-              <img alt="" class="logo-input__preview-img">
+              <input type="file" class="logo-input__input" id="logo" name="logo" required accept="image/png, image/jpeg">
+              <div class="logo-input__preview-img"></div>
               <div class="preview-button">
                 <img src="./assets/images.svg" alt="" class="preview-button__icon">
                 <span class="preview-button__text">Выберите файл</span>
