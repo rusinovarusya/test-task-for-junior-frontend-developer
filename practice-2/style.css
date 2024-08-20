@@ -1,0 +1,16 @@
+.table {
+  border-collapse: collapse;
+}
+
+.th,.td {
+  padding: 8px;
+  border: 1px solid lightgray;
+}
+
+.th[data-columnId='userId'], .td[data-columnId='id'] {
+  width: 4rem;
+}
+
+.td[data-columnId='userId'], .td[data-columnId='id'] {
+  text-align: center;
+}
