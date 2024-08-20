@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+:root {
+  --dark-color: #0c1014;
+  --medium-color: #6a6e72;
+  --light-color: #ffffff;
+  --accent-color: #e5266e;
+  --border-color: #d6dade;
+
+  --large-font: 800 28px/43px "Montserrat", sans-serif;
+  --medium-main-font: 400 16px/24px "PT Sans", sans-serif;;
+  --medium-extra-font: 600 16px/18px "Lato", sans-serif;
+  --small-font: 400 12px/16px "PT Sans", sans-serif;
+
+  --large-font-mobile: 800 28px/32px "Montserrat", sans-serif;
+}
+
+.main-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--medium-color);
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.modal__shadow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.modal__content {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 53px 98px;
+  background-color: var(--light-color);
+  border-radius: 12px;
+}
+
+.title {
+  margin-bottom: 35px;
+  font: var(--large-font);
+  text-align: left;
+  color: var(--dark-color);
+}
+
+.form {
+  width: 558px;
+}
+
+.form__input-container {
+  display: grid;
+  grid-template-areas: "name logo"
+                       "telephone logo"
+                       "email logo"
+                       "direction direction"
+                       "site site"
+                       "vk vk"
+                       "ok ok"
+                       "facebook facebook"
+                       "instagram instagram"
+                       "youtube youtube"
+                       "supervisor supervisor";
+  grid-template-columns: auto 175px;
+  gap: 32px 26px;
+  margin-bottom: 50px;
+}
+
+.organization-name { grid-area: name; }
+.telephone { grid-area: telephone; }
+.email { grid-area: email; }
+.direction { 
+  grid-area: direction; 
+  height: 40px;
+}
+.logo { grid-area: logo; }
+
+.site {  grid-area: site; }
+.vk {  grid-area: vk; }
+.ok {  grid-area: ok; }
+.facebook {  grid-area: facebook; }
+.instagram {  grid-area: instagram; }
+.youtube {  grid-area: youtube; }
+.supervisor {  grid-area: supervisor; }
+
+.star {
+  color: var(--accent-color);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+}
+
+.input-container__label {
+  font: var(--small-font);
+  text-align: left;
+}
+
+.input-container__input {
+  font: var(--medium-main-font);
+  text-align: left;
+  color: var(--dark-color);
+}
+
+.logo-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.logo-input-container__label {
+  font: var(--small-font);
+  text-align: center;
+}
+
+.logo-input {
+  position: relative;
+}
+
+.logo-input__input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.logo-input__preview-img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 164px;
+  height: 164px;
+  border: 1px solid var(--medium-color);
+  border-radius: 50%;
+}
+
+.preview-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--light-color);
+  background-color: transparent;
+}
+
+.preview-button__text {
+  color: var(--border-color);
+  text-align: center;
+  text-decoration: underline;
+}
+
+.delete-image-button {
+  position: absolute;
+  top: 15px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  background-color: var(--light-color);
+  border-radius: 50%;
+}
+
+.delete-image-button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.link__input {
+  font: var(--medium-main-font);
+  text-align: left;
+  color: var(--dark-color);
+}
+
+.form__button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.button {}
+
+.submit-button {
+  width: 100%;
+  padding: 14px 15px 16px;
+  font: var(--medium-extra-font);
+  text-align: center;
+  color: var(--light-color);
+  background-color: var(--accent-color);
+  border-radius: 4px;  
+}
+.submit-button:disabled {
+  background-color: var(--medium-color);
+}
+
+.reset-button {
+  font: var(--medium-main-font);
+  text-align: center;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.open-modal-button {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 32px;
+  font: var(--medium-main-font);
+  background-color: var(--accent-color);
+  border-radius: 12px;
+}
