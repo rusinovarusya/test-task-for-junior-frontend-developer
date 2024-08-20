@@ -1,0 +1,33 @@
+@media screen and (max-width: 780px) {
+
+  .modal__content {
+    top: 32px;
+    padding: 16px 64px;
+  }
+  
+  .title {
+    margin-bottom: 16px;
+    font: var(--large-font-mobile);
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .form__input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+ 
+  .logo-input-container {
+    align-self: center;
+    width: fit-content;
+  }
+
+  .logo-input__preview-img {
+    transform: translate(-50%, 0%);
+  }
+}
