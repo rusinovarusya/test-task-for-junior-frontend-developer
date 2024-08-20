@@ -2,6 +2,7 @@
   const url = 'https://jsonplaceholder.typicode.com/posts';
   const main = document.querySelector('.main');
   const form = document.querySelector('form');
+  const preloader = document.querySelector('.preloader');
 
   const headers = [
     {
@@ -142,11 +143,15 @@
     const targetValue = form.elements['input'].value;
     const table = document.querySelector('.table');
     hideRows(targetValue, table);
-    
   });
+
+  const hidePreloader = () => {
+    preloader.classList.add('hidden');
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     fetch(url).then((response) => response.json())
-    .then((data) => generateTable(data));
+    .then((data) => generateTable(data))
+    .then(() => hidePreloader());
   });
 })();
