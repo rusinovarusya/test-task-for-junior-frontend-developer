@@ -1,6 +1,7 @@
 (function() {
   const url = 'https://jsonplaceholder.typicode.com/posts';
   const main = document.querySelector('.main');
+  const form = document.querySelector('form');
 
   const headers = [
     {
@@ -37,11 +38,11 @@
     const thead = createThead(headers, data, handlers);
     const tbody = createTbody(headers, data);
 
-    
     table.classList.add('table');
     table.appendChild(thead);
     table.appendChild(tbody);
     handlers.sort = (header) => sortTable(header.columnId, data, table);
+    handlers.hide = (target) => hideRows(target, table);
 
     return table;
   }
@@ -120,6 +121,30 @@
         return 'asc';
     }
   }
+
+  const hideRows = (target, table) => {
+    const tbody = table.querySelector('.tbody');
+    const rowList = tbody.querySelectorAll('.tr');
+    for (let row of rowList) {
+      if (!isTargetInRow(target, row)) {
+        row.classList.add('hidden');
+      }
+    }
+  }
+
+  const isTargetInRow = (target, row) => {
+    const elements = row.querySelectorAll('.td');
+    console.log(elements)
+    return [...elements].some((element) => element.textContent.includes(target));
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const targetValue = form.elements['input'].value;
+    const table = document.querySelector('.table');
+    hideRows(targetValue, table);
+    
+  });
 
   document.addEventListener('DOMContentLoaded', () => {
     fetch(url).then((response) => response.json())
