@@ -1,6 +1,7 @@
 (function() {
   const url = 'https://jsonplaceholder.typicode.com/posts';
   const main = document.querySelector('.main');
+  const preloader = document.querySelector('.preloader');
 
   const headers = [
     {
@@ -64,8 +65,13 @@
     return tbody;
   }
 
+  const hidePreloader = () => {
+    preloader.classList.add('hidden');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     fetch(url).then((response) => response.json())
-    .then((data) => generateTable(data));
+    .then((data) => generateTable(data))
+    .then(() => hidePreloader());
   });
 })();
